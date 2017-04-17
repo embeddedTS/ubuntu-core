@@ -1,0 +1,11 @@
+{
+  "type": "model",
+  "authority-id": "YOURAUTHORITYIDHERE",
+  "brand-id": "YOURBRANDIDHERE",
+  "series": "16",
+  "model": "tsimx6",
+  "architecture": "armhf",
+  "gadget": "tsimx6-gadget",
+  "kernel": "tsimx6-kernel",
+  "timestamp": "2016-11-08T18:12:28+00:00"
+}

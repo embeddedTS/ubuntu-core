@@ -1,0 +1,15 @@
+# Prepare with:
+# mkimage -T script -C none -n 'TSIMX6 Ubuntu Core' -d boot.scr boot.ub
+
+if test ${jpsdboot} = 'on'; then 
+	env set mmcdev 0;
+	env set mmcblk 1;
+
+else 
+	env set mmcdev 1;
+	env set mmcblk 2;
+fi;
+
+load mmc ${mmcdev}:1 ${loadaddr} /uboot.env;
+env import -t -r ${loadaddr} ${filesize};
+run uenvcmd;

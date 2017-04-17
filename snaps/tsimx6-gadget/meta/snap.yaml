@@ -1,0 +1,8 @@
+name: tsimx6-gadget
+version: 16.04-1
+summary: Technologic IMX6 series
+description: |
+ This package is used to setup a TS-4900, TS-7970, TS-TPC-7990
+type: gadget
+architectures:
+  - armhf

@@ -1,0 +1,6 @@
+snaps/tsimx6-kernel/parts
+snaps/tsimx6-kernel/prime
+snaps/tsimx6-kernel/stage
+config.inc
+output/
+snaps/tsimx6-gadget/boot-assets/boot/boot.ub

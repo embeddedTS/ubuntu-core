@@ -1,0 +1,23 @@
+name: tsimx6-kernel
+version: 4.4.30
+summary: Technologic System's Kernel
+description: Includes support for TS-4900
+type: kernel
+confinement: strict
+grade: stable
+architectures: [ armhf ]
+
+parts:
+  kernel:
+    plugin: kernel
+    source: https://github.com/embeddedarm/ubuntu-kernel.git
+    source-type: git
+    source-branch: ts-ubuntu-xenial
+    kdefconfig: [ts4900_ubuntucore_defconfig]
+    kconfigs:
+      - CONFIG_LOCALVERSION="-technologic"
+    kernel-image-target: zImage
+    kernel-device-trees:
+      - imx6q-ts4900
+      - imx6dl-ts4900
+    build-packages: [bc, kmod, cpio]
