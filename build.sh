@@ -26,6 +26,8 @@ snapcraft --target-arch armhf snap snaps/tsimx6-gadget --output output/tsimx6-ga
 cp models/tsimx6-model.json output/tsimx6-model.json
 sed --in-place "s/YOURAUTHORITYIDHERE/${AUTH_ID}/" output/tsimx6-model.json
 sed --in-place "s/YOURBRANDIDHERE/${BRAND_ID}/" output/tsimx6-model.json
+TIMESTAMP=$(date --rfc-3339=seconds | sed 's/ /T/')
+sed --in-place "s/TIMESTAMPHERE/${TIMESTAMP}/" output/tsimx6-model.json
 
 cat output/tsimx6-model.json | snap sign -k default &> output/tsimx6.model
 if [ ! -e output/tsimx6.model ]; then
