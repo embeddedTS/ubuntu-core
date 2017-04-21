@@ -4,3 +4,4 @@ snaps/tsimx6-kernel/stage
 config.inc
 output/
 snaps/tsimx6-gadget/boot-assets/boot/boot.ub
+snaps/tsimx6-gadget/uboot.env
