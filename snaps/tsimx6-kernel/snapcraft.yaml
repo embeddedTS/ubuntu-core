@@ -34,4 +34,4 @@ parts:
       - imx6dl-ts7990-microtips
       - imx6q-ts7990-okaya
       - imx6dl-ts7990-okaya
-    build-packages: [bc, kmod, cpio]
+    build-packages: [crossbuild-essential-armhf, bc, kmod, cpio]
