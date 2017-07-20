@@ -15,8 +15,9 @@ if [ -z "$BRAND_ID" ]; then
 fi
 
 cd snaps/tsimx6-kernel/
+snapcraft clean kernel -s build
 snapcraft --target-arch armhf
-cp tsimx6-kernel_4.4.30_armhf.snap ../../output/tsimx6-kernel_4.4.30_armhf.snap
+mv tsimx6-kernel_4.4.30_armhf.snap ../../output/tsimx6-kernel_4.4.30_armhf.snap
 cd -
 
 mkenvimage -r -s 8192  -o snaps/tsimx6-gadget/uboot.env snaps/tsimx6-gadget/uboot.env.in
