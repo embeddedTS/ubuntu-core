@@ -35,3 +35,9 @@ parts:
       - imx6q-ts7990-okaya
       - imx6dl-ts7990-okaya
     build-packages: [crossbuild-essential-armhf, bc, kmod, cpio]
+  wl1271-firmware:
+    plugin: dump
+    source: wl1271.tar
+    source-type: tar
+    organize:
+      ti-connectivity: lib/firmware/ti-connectivity
