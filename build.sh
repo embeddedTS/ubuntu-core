@@ -6,12 +6,16 @@ source config.inc
 
 if [ -z "$AUTH_ID" ]; then
 	echo "You need to specify your AUTH_ID in config.inc"
-	echo "Get this here: https://myapps.developer.ubuntu.com/dev/account/"
+	echo "Get this here: https://dashboard.snapcraft.io/dev/account/"
 	exit 1
 fi
 
 if [ -z "$BRAND_ID" ]; then
 	BRAND_ID="$AUTH_ID"
+fi
+
+if [ -z "$KEYNAME" ]; then
+	KEYNAME="default"
 fi
 
 cd snaps/tsimx6-kernel/
@@ -31,17 +35,17 @@ sed --in-place "s/YOURBRANDIDHERE/${BRAND_ID}/" output/tsimx6-model.json
 TIMESTAMP=$(date --rfc-3339=seconds | sed 's/ /T/')
 sed --in-place "s/TIMESTAMPHERE/${TIMESTAMP}/" output/tsimx6-model.json
 
-cat output/tsimx6-model.json | snap sign -k default &> output/tsimx6.model
+cat output/tsimx6-model.json | snap sign -k $KEYNAME &> output/tsimx6.model
 if [ ! -e output/tsimx6.model ]; then
 	echo "Failed to sign model.  Make sure you have registered a \"default\" key with snap."
 	echo "https://docs.ubuntu.com/core/en/guides/build-device/image-building"
 fi
 
-ubuntu-image \
+ubuntu-image snap \
 	-c stable \
 	--image-size 1G \
-	--extra-snaps output/tsimx6-kernel_4.4.30_armhf.snap \
-	--extra-snaps output/tsimx6-gadget_16.04-1_armhf.snap \
+	--snap output/tsimx6-kernel_4.4.30_armhf.snap \
+	--snap output/tsimx6-gadget_16.04-1_armhf.snap \
 	-O output/ \
 	output/tsimx6.model
 
