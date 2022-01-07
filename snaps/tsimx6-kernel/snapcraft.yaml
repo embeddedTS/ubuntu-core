@@ -10,7 +10,7 @@ architectures: [ armhf ]
 parts:
   kernel:
     plugin: kernel
-    source: https://github.com/embeddedarm/ubuntu-kernel.git
+    source: https://github.com/embeddedTS/ubuntu-kernel.git
     source-type: git
     source-branch: ts-ubuntu-xenial
     kdefconfig: [ts4900_ubuntucore_defconfig]
